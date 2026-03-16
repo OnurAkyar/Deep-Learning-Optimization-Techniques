@@ -1,64 +1,64 @@
-# 🚀 Metin Tabanlı Soru-Cevap Sınıflandırma ve Optimizasyon Analizi
+# 🚀 Text-Based Question-Answer Classification and Optimization Analysis
 
-⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ **Bu projede içerisinde bulunduğum Cosmos ekibimizin ytu-ce-cosmos/Turkish-Gemma-9b-T1 modeli kullanılmıştır.**⭐⭐⭐⭐⭐⭐⭐⭐⭐
+⭐⭐⭐⭐⭐ **In this project, the ytu-ce-cosmos/Turkish-Gemma-9b-T1 model of our Cosmos team, which I am a part of, was used.** ⭐⭐⭐⭐⭐
 
-Projenin temel amacı; yerli büyük dil modelleri (LLM) kullanarak sentetik bir veri kümesi oluşturmak ve bu veriler üzerinde farklı optimizasyon algoritmalarının (GD, SGD, Adam) performansını matematiksel olarak analiz etmektir .
+The main purpose of the project is to create a synthetic dataset using local large language models (LLM) and to mathematically analyze the performance of different optimization algorithms (GD, SGD, Adam) on this data .
 
-## 📑 Proje Genel Bakışı
+## 📑 Project Overview
 
-Sistem üç ana aşamadan oluşmaktadır:
+The system consists of three main stages:
 
-**• Veri Üretimi:** Turkish-Gemma-9b-T1 modeli ile 100 eğitim ve 100 test örneği (Soru + İyi Cevap + Kötü Cevap) üretimi.
+**• Data Generation:** Generation of 100 training and 100 test samples (Question + Good Answer + Bad Answer) with the Turkish-Gemma-9b-T1 model.
 
-**• Vektörizasyon:** Metinlerin turkish-e5-large modeli ile yüksek boyutlu anlamsal temsil (embedding) vektörlerine dönüştürülmesi.
+**• Vectorization:** Converting texts into high-dimensional semantic representation (embedding) vectors with the turkish-e5-large model.
 
-**• Regresyon ve Optimizasyon:** Lojistik regresyona benzer bir tanh modeli kullanılarak ağırlık parametrelerinin öğrenilmesi ve algoritmaların karşılaştırılması.
+**• Regression and Optimization:** Learning weight parameters and comparing algorithms using a tanh model similar to logistic regression.
 
-## 🏗️ Teknik Mimari
+## 🏗️ Technical Architecture
 
-### 1. Veri Hazırlama (Data Generation)
-Dil modeli kullanılarak Tarih, Coğrafya ve Teknoloji gibi sözel ağırlıklı konularda sorular üretilmiştir.
+### 1. Data Preparation (Data Generation)
+Questions were generated on verbal-heavy subjects such as History, Geography, and Technology using the language model.
 
-**• İyi Cevap (+1):** Bilimsel olarak doğru, kesin ifadeler içeren cevaplar.
+**• Good Answer (+1):** Answers that are scientifically correct and contain precise statements.
 
-**• Kötü Cevap (-1):** Çok kısa, saçma veya yanlış bilgi içeren cevaplar.
+**• Bad Answer (-1):** Answers that are too short, nonsensical, or contain incorrect information.
 
-### 2. Model Yapısı
-Model, giriş olarak soru ve cevap embedding vektörlerinin birleştirilmesini (concat) kullanır. Matematiksel formülasyonu şu şekildedir:
+### 2. Model Structure
+The model uses the concatenation of question and answer embedding vectors as input. Its mathematical formulation is as follows:
 
-**c\c​ıkıs\c​=tanh(w⋅x)**
+**c\output\c​=tanh(w⋅x)**
 
-Burada x giriş vektörünü, w ise öğrenilecek parametreleri temsil eder.
+Here, x represents the input vector, and w represents the parameters to be learned.
 
-### 3. Optimizasyon Stratejileri
-Proje kapsamında 5 farklı başlangıç w değeri için üç algoritma karşılaştırılmıştır:
+### 3. Optimization Strategies
+Within the scope of the project, three algorithms were compared for 5 different initial w values:
 
-**• GD (Batch Gradient Descent):** Tüm veri kümesini kullanarak kararlı ama yavaş güncellemeler yapar.
+**• GD (Batch Gradient Descent):** Makes stable but slow updates using the entire dataset.
 
-**• SGD (Stochastic Gradient Descent):** Her adımda rastgele bir örnek seçerek gürültülü ama hızlı bir yol izler.
+**• SGD (Stochastic Gradient Descent):** Follows a noisy but fast path by selecting a random sample at each step.
 
-**• Adam:** Momentum ve adaptif öğrenme oranını birleştirerek en hızlı yakınsamayı sağlar.
+**• Adam:** Provides the fastest convergence by combining momentum and adaptive learning rate.
 
-## 📊 Analiz ve Görselleştirme
+## 📊 Analysis and Visualization
 
-### Performans Grafikleri:
-• Eğitim ve test başarısı; Süre vs. Loss ve Epoch vs. Accuracy kriterlerine göre analiz edilmiştir.
+### Performance Graphs:
+• Training and test success; analyzed according to Time vs. Loss and Epoch vs. Accuracy criteria.
 
-• Adam algoritması, doğası gereği en hızlı öğrenen ve en düşük kayıp (loss) değerine ulaşan yöntem olmuştur.
+• The Adam algorithm was the method that learned the fastest and reached the lowest loss value by its nature.
 
-• Başlangıç ağırlıklarının (w) yakınsama hızı üzerindeki etkisi, özellikle sıçramalı artışlarda gözlemlenmiştir.
+• The effect of the initial weights (w) on the convergence speed was observed, especially in sudden jumps.
 
-### t-SNE ile Yörünge Analizi
-• Ağırlık parametrelerinin (w1:t) optimizasyon sürecinde izlediği yol, t-SNE algoritması ile 2 boyuta indirgenerek görselleştirilmiştir.
+### Trajectory Analysis with t-SNE
+• The path followed by the weight parameters (w1:t) during the optimization process was reduced to 2 dimensions and visualized with the t-SNE algorithm.
 
-• Farklı başlangıç noktalarından başlanmasına rağmen, algoritmaların benzer minimum bölgelerine yöneldiği kanıtlanmıştır.
+• It has been proven that the algorithms tend towards similar minimum regions despite starting from different initial points.
 
-## 🛠️ Kullanılan Teknolojiler
+## 🛠️ Technologies Used
 
-**• Dil:** Python 
+**• Language:** Python 
 
 **• LLM & Embedding:** * ytu-ce-cosmos/Turkish-Gemma-9b-T1 & ytu-ce-cosmos/turkish-e5-large
 
-**• Kütüphaneler:** llama-cpp-python, SentenceTransformer, NumPy, Matplotlib, scikit-learn, PyTorch
+**• Libraries:** llama-cpp-python, SentenceTransformer, NumPy, Matplotlib, scikit-learn, PyTorch
 
-**• Platform:** Google Colab (GPU Destekli)
+**• Platform:** Google Colab (GPU Supported)
