@@ -1,6 +1,6 @@
 # 🚀 Text-Based Question-Answer Classification and Optimization Analysis
 
-⭐ **In this project, the ytu-ce-cosmos/Turkish-Gemma-9b-T1 and ytu-ce-cosmos/turkish-e5-large models of our Cosmos team, which I am a part of, was used.** ⭐
+⭐⭐⭐⭐⭐ **In this project, the ytu-ce-cosmos/Turkish-Gemma-9b-T1 and ytu-ce-cosmos/turkish-e5-large models of our Cosmos team, which I am a part of, was used.** ⭐⭐⭐⭐⭐
 
 • The main purpose of the project is to create a synthetic dataset using local large language models (LLM) and to mathematically analyze the performance of different optimization algorithms (GD, SGD, Adam) on this data .
 
