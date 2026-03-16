@@ -1,12 +1,12 @@
 # 🚀 Text-Based Question-Answer Classification and Optimization Analysis
 
-⭐ **In this project, the ytu-ce-cosmos/Turkish-Gemma-9b-T1 model of our Cosmos team, which I am a part of, was used.** ⭐
+⭐ **In this project, the ytu-ce-cosmos/Turkish-Gemma-9b-T1 and ytu-ce-cosmos/turkish-e5-large models of our Cosmos team, which I am a part of, was used.** ⭐
 
-The main purpose of the project is to create a synthetic dataset using local large language models (LLM) and to mathematically analyze the performance of different optimization algorithms (GD, SGD, Adam) on this data .
+• The main purpose of the project is to create a synthetic dataset using local large language models (LLM) and to mathematically analyze the performance of different optimization algorithms (GD, SGD, Adam) on this data .
 
 ## 📑 Project Overview
 
-The system consists of three main stages:
+• The system consists of three main stages:
 
 **• Data Generation:** Generation of 100 training and 100 test samples (Question + Good Answer + Bad Answer) with the Turkish-Gemma-9b-T1 model.
 
@@ -17,21 +17,21 @@ The system consists of three main stages:
 ## 🏗️ Technical Architecture
 
 ### 1. Data Preparation (Data Generation)
-Questions were generated on verbal-heavy subjects such as History, Geography, and Technology using the language model.
+• Questions were generated on verbal-heavy subjects such as History, Geography, and Technology using the language model.
 
 **• Good Answer (+1):** Answers that are scientifically correct and contain precise statements.
 
 **• Bad Answer (-1):** Answers that are too short, nonsensical, or contain incorrect information.
 
 ### 2. Model Structure
-The model uses the concatenation of question and answer embedding vectors as input. Its mathematical formulation is as follows:
+• The model uses the concatenation of question and answer embedding vectors as input. Its mathematical formulation is as follows:
 
 **c\output\c​=tanh(w⋅x)**
 
-Here, x represents the input vector, and w represents the parameters to be learned.
+• Here, x represents the input vector, and w represents the parameters to be learned.
 
 ### 3. Optimization Strategies
-Within the scope of the project, three algorithms were compared for 5 different initial w values:
+• Within the scope of the project, three algorithms were compared for 5 different initial w values:
 
 **• GD (Batch Gradient Descent):** Makes stable but slow updates using the entire dataset.
 
